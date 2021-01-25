@@ -1,0 +1,31 @@
+{
+  "name": "l-native-tools",
+  "version": "1.0.0",
+  "description": "native typescript tools",
+  "main": "index.js",
+  "scripts": {
+    "dev": "rollup --config ./build/rollup.config.dev.js --watch",
+    "build": "rollup --config ./build/rollup.config.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web-liuyang/l-native-tools.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/web-liuyang/l-native-tools/issues"
+  },
+  "homepage": "https://github.com/web-liuyang/l-native-tools#readme",
+  "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.3",
+    "rollup": "^2.38.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "typescript": "^4.1.3"
+  }
+}
