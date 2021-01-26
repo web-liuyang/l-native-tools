@@ -1,13 +1,13 @@
 console.log('common.ts');
 
-type Type = 'string' | 'number' | 'boolean' | 'object' | 'array' | 'symbol' | 'function' | 'null' | 'undefined';
+type Type = 'string' | 'number' | 'boolean' | 'object' | 'array' | 'symbol' | 'function' | 'null' | 'undefined' | 'regexp' | 'date' | 'window';
 
 /**
- * @description 判断类型
+ * @description 浅判断类型
  * @param {*} origin - 判断的变量
  * @return {Type}
  */
-export function typeOf(origin: any): Type {
+export function typeOf(origin?: any): Type {
   return Object.prototype.toString.call(origin).slice(1, -1).split(' ')[1].toLowerCase() as Type;
 }
 
@@ -96,9 +96,9 @@ export function deepClone<T = {} | any[]>(origin: T): T {
 
 /**
  * @description 防抖
- * @param {Function} fn 延迟执行的函数
- * @param {number} delay 延迟执行毫秒数
- * @param {boolean} [immediate] 是否第一次执行
+ * @param {Function} fn - 延迟执行的函数
+ * @param {number} delay - 延迟执行毫秒数
+ * @param {boolean} [immediate] - 是否第一次执行
  * @return {() => void}
  */
 export function debounce(fn: Function, delay: number, immediate?: boolean): () => void {
@@ -128,8 +128,8 @@ export function debounce(fn: Function, delay: number, immediate?: boolean): () =
 
 /**
  * @description 节流
- * @param {Function} fn 节流执行的函数
- * @param {number} delay 节流毫秒数
+ * @param {Function} fn - 节流执行的函数
+ * @param {number} delay - 节流毫秒数
  * @returns {() => void}
  */
 export function throttle(fn: Function, delay: number): () => void {

@@ -17,3 +17,15 @@ export function flatten(origin: any[], target: any[] = []): any[] {
   }
   return target;
 }
+
+/**
+ * @description 数组去重
+ * @param {any[]} origin - 源数组
+ * @return {any[]} 去重后的数组
+ */
+export function unique(origin: any[]): any[] {
+  if (typeOf(origin) !== 'array') {
+    throw new Error(`想要的到array类型的参数但是却得到：${typeOf(origin)}}类型的参数`);
+  }
+  return [...new Set(origin)];
+}

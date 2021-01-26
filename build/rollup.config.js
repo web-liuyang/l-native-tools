@@ -7,13 +7,50 @@ const resolve = (filePath) => {
 };
 
 export { resolve };
-
-export default {
-  input: resolve('src/index.ts'),
-  output: {
-    file: resolve('dist/index.js'),
-    format: 'umd',
-    name: '$l',
+export default [
+  {
+    input: resolve('src/index.ts'),
+    output: {
+      file: resolve('dist/index.cjs.js'),
+      format: 'cjs',
+      name: '$l',
+    },
+    plugins: [
+      typescript({
+        clean: true,
+        useTsconfigDeclarationDir: true,
+      }),
+      buble(),
+    ],
   },
-  plugins: [typescript(), buble()],
-};
+  {
+    input: resolve('src/index.ts'),
+    output: {
+      file: resolve('dist/index.esm.js'),
+      format: 'esm',
+      name: '$l',
+    },
+    plugins: [
+      typescript({
+        clean: true,
+        useTsconfigDeclarationDir: true,
+      }),
+      buble(),
+    ],
+  },
+  {
+    input: resolve('src/index.ts'),
+    output: {
+      file: resolve('dist/index.umd.js'),
+      format: 'umd',
+      name: '$l',
+    },
+    plugins: [
+      typescript({
+        clean: true,
+        useTsconfigDeclarationDir: true,
+      }),
+      buble(),
+    ],
+  },
+];

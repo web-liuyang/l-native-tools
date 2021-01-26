@@ -25,3 +25,19 @@ export function currency(method: '+' | '-' | '*' | '/', numberArr: number[]): nu
   }
   return num;
 }
+
+/**
+ * @description 获取两个数值之间的数
+ * @param {number} min - 最小值
+ * @param {number} max - 最大值
+ * @param {boolean} [isInt=false] - 是否是整数 -> 包含最小值与最大值
+ * @return {number}
+ */
+export function random(min: number, max: number, isInt: boolean = false): number {
+  // 是否取整
+  if (isInt) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  } else {
+    return Math.random() * (max - min) + min;
+  }
+}
