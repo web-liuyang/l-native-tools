@@ -1,56 +1,47 @@
 import path from 'path';
-import buble from '@rollup/plugin-buble';
+// import buble from '@rollup/plugin-buble';
 import typescript from 'rollup-plugin-typescript2';
+import babel from '@rollup/plugin-babel';
+
+// import nodeResolve from '@rollup/plugin-node-resolve';
 
 const resolve = (filePath) => {
   return path.join(__dirname, '..', filePath);
 };
 
+const TSPLUGIN = typescript({
+  clean: true,
+  useTsconfigDeclarationDir: true,
+});
+const BABELPLUGIN = babel({
+  extensions: ['.js', '.ts'],
+  exclude: 'node_modules/**',
+  babelHelpers: 'bundled',
+});
+
 export { resolve };
-export default [
-  {
-    input: resolve('src/index.ts'),
-    output: {
-      file: resolve('dist/index.cjs.js'),
-      format: 'cjs',
-      name: '$l',
+
+export default (dirName) => {
+  return [
+    {
+      input: resolve('src/index.ts'),
+      output: {
+        file: resolve(`${dirName}/index.es.js`),
+        format: 'esm',
+        name: '$l',
+        exports: 'default',
+      },
+      plugins: [TSPLUGIN, BABELPLUGIN],
     },
-    plugins: [
-      typescript({
-        clean: true,
-        useTsconfigDeclarationDir: true,
-      }),
-      buble(),
-    ],
-  },
-  {
-    input: resolve('src/index.ts'),
-    output: {
-      file: resolve('dist/index.esm.js'),
-      format: 'esm',
-      name: '$l',
+    {
+      input: resolve('src/index.ts'),
+      output: {
+        file: resolve(`${dirName}/index.cjs.js`),
+        format: 'cjs',
+        name: '$l',
+        exports: 'default',
+      },
+      plugins: [TSPLUGIN, BABELPLUGIN],
     },
-    plugins: [
-      typescript({
-        clean: true,
-        useTsconfigDeclarationDir: true,
-      }),
-      buble(),
-    ],
-  },
-  {
-    input: resolve('src/index.ts'),
-    output: {
-      file: resolve('dist/index.umd.js'),
-      format: 'umd',
-      name: '$l',
-    },
-    plugins: [
-      typescript({
-        clean: true,
-        useTsconfigDeclarationDir: true,
-      }),
-      buble(),
-    ],
-  },
-];
+  ];
+};
