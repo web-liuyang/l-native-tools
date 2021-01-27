@@ -1,0 +1,19 @@
+{
+  "name": "l-native-tools",
+  "version": "1.0.0",
+  "description": "原生ts/js封装的工具库",
+  "main": "index.cjs.js",
+  "module": "index.es.js",
+  "types": "./types/index.d.ts",
+  "scripts": {},
+  "keywords": [
+    "typescript",
+    "javascript",
+    "tools",
+    "native"
+  ],
+  "author": "LiuYang <984584014@qq.com> (https://github.com/web-liuyang)",
+  "bugs": "https://github.com/web-liuyang/l-native-tools/issues",
+  "repository": "https://github.com/web-liuyang/l-native-tools",
+  "license": "MIT"
+}
