@@ -10,9 +10,9 @@ git add .
 
 git commit -m '🌟 update code'
 
-git push gitee master
+git push gitee main
 
-git push github master
+git push github main
 
 # 如果发布到 https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
