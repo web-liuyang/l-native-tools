@@ -1,7 +1,7 @@
 {
   "name": "l-native-tools",
-  "version": "1.0.0",
-  "description": "原生ts/js封装的工具库",
+  "version": "1.0.1",
+  "description": "Native TS/JS encapsulated tool library。原生ts/js封装的工具库",
   "main": "index.cjs.js",
   "module": "index.es.js",
   "types": "./types/index.d.ts",

@@ -1,4 +1,3 @@
-console.log('array.ts');
 import { typeOf } from './common';
 
 /**
@@ -25,7 +24,7 @@ export function flatten(origin: any[], target: any[] = []): any[] {
  */
 export function unique(origin: any[]): any[] {
   if (typeOf(origin) !== 'array') {
-    throw new Error(`想要的到array类型的参数但是却得到：${typeOf(origin)}}类型的参数`);
+    throw new TypeError(`想要得到array类型的参数但是却得到：${typeOf(origin)}}类型的参数`);
   }
   return [...new Set(origin)];
 }
