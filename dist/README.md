@@ -1,6 +1,6 @@
 # l-native-tools
 
-[文档请点击这里](http://liuyang.xhjrbkp.com/typescript/)
+此SDK基于TypeScript所编写的常用工具库。
 
-链接：http://liuyang.xhjrbkp.com/typescript/
+[文档地址](https://webliuyang.com/typescript/l-native-tools/)
 

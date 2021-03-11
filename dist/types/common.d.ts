@@ -25,4 +25,10 @@ export declare function straightDistance(origin: string, target: string): number
  * @return {T} 拷贝后的对象
  */
 export declare function deepClone<T = {} | any[]>(origin: T): T;
+/**
+ * @description 随机颜色获取
+ * @param { number } [transparency=1] - 透明度
+ * @return { string } rgba颜色
+ */
+export declare function getRandomColor(transparency?: number): string;
 export {};

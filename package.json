@@ -4,7 +4,7 @@
   "description": "native typescript tools",
   "main": "index.js",
   "scripts": {
-    "dev": "rollup --config ./build/rollup.config.dev.js --watch",
+    "start": "rollup --config ./build/rollup.config.dev.js --watch",
     "build": "rollup --config ./build/rollup.config.prod.js"
   },
   "repository": {

@@ -1,6 +1,6 @@
 {
   "name": "l-native-tools",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Native TS/JS encapsulated tool library。原生ts/js封装的工具库",
   "main": "index.cjs.js",
   "module": "index.es.js",
@@ -10,7 +10,10 @@
     "typescript",
     "javascript",
     "tools",
-    "native"
+    "native",
+    "library",
+    "es",
+    "commonjs"
   ],
   "author": "LiuYang <984584014@qq.com> (https://github.com/web-liuyang)",
   "bugs": "https://github.com/web-liuyang/l-native-tools/issues",

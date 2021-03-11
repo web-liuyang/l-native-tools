@@ -77,13 +77,13 @@ function typeOf(origin) {
 function isEmpty(origin) {
   switch (typeOf(origin)) {
     case 'string':
-      return !!origin;
+      return !origin;
 
     case 'number':
-      return !!origin;
+      return !origin;
 
     case 'boolean':
-      return origin;
+      return !origin;
 
     case 'object':
       for (var key in origin) {
@@ -171,13 +171,33 @@ function deepClone(origin) {
 
   return clone;
 }
+/**
+ * @description 随机颜色获取
+ * @param { number } [transparency=1] - 透明度
+ * @return { string } rgba颜色
+ */
+
+function getRandomColor(transparency) {
+  if (transparency === void 0) {
+    transparency = 1;
+  }
+
+  var floor = Math.floor,
+      random = Math.random;
+  var r = floor(random() * 255);
+  var g = floor(random() * 255);
+  var b = floor(random() * 255);
+  var color = "rgba(" + r + "," + g + "," + b + "," + transparency + ")";
+  return color;
+}
 
 var common = /*#__PURE__*/Object.freeze({
     __proto__: null,
     typeOf: typeOf,
     isEmpty: isEmpty,
     straightDistance: straightDistance,
-    deepClone: deepClone
+    deepClone: deepClone,
+    getRandomColor: getRandomColor
 });
 
 /**
@@ -314,11 +334,18 @@ var number = /*#__PURE__*/Object.freeze({
     random: random
 });
 
-var String = 'string';
+/**
+ * @description 将第一个字母转换成大写
+ * @param {string} str - 需要转换的字符串
+ * @return {string} 转换后的字符串
+ */
+function firstUpperCase(str) {
+  return str.replace(str[0], str[0].toUpperCase());
+}
 
 var string = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    String: String
+    firstUpperCase: firstUpperCase
 });
 
 /**
@@ -393,4 +420,8 @@ var performance = /*#__PURE__*/Object.freeze({
     throttle: throttle
 });
 
-module.exports = __assign(__assign(__assign(__assign(__assign(__assign({}, array), common), object), number), string), performance);
+var _default = __assign(__assign(__assign(__assign(__assign(__assign({}, array), common), object), number), string), performance);
+
+var index = __assign({}, _default);
+
+export default index;

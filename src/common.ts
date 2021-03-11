@@ -17,11 +17,11 @@ export function typeOf(origin?: any): Type & string {
 export function isEmpty(origin?: any): boolean {
   switch (typeOf(origin)) {
     case 'string':
-      return !!origin;
+      return !origin;
     case 'number':
-      return !!origin;
+      return !origin;
     case 'boolean':
-      return origin;
+      return !origin;
     case 'object':
       for (const key in origin) return !key;
       return true;
@@ -86,4 +86,21 @@ export function deepClone<T = {} | any[]>(origin: T): T {
     }
   }
   return clone;
+}
+
+/**
+ * @description 随机颜色获取
+ * @param { number } [transparency=1] - 透明度
+ * @return { string } rgba颜色
+ */
+export function getRandomColor(transparency: number = 1): string {
+  const { floor, random } = Math;
+
+  const r = floor(random() * 255);
+  const g = floor(random() * 255);
+  const b = floor(random() * 255);
+
+  const color = `rgba(${r},${g},${b},${transparency})`;
+
+  return color;
 }

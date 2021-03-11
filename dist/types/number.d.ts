@@ -11,4 +11,4 @@ export declare function currency(method: '+' | '-' | '*' | '/', numberArr: numbe
  * @param {number} max - 最大值
  * @return {number}
  */
-export declare function random(min: number, max: number): number;
+export declare function randomInt(min: number, max: number): number;
