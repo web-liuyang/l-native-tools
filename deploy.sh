@@ -8,7 +8,7 @@ set -e
 
 git add .
 
-git commit -m '🌟 update code'
+git commit -m '🌟 update code ok!'
 
 git push gitee main
 
