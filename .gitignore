@@ -2,4 +2,7 @@ node_modules
 
 yarn.lock
 
+dev
+dist
+
 .DS_Store
