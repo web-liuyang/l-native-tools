@@ -1,13 +1,15 @@
-import path from 'path';
+import path from "path";
 // import buble from '@rollup/plugin-buble';
-import typescript from 'rollup-plugin-typescript2';
-import babel from '@rollup/plugin-babel';
+import typescript from "rollup-plugin-typescript2";
+import babel from "@rollup/plugin-babel";
+import { RollupOptions } from "rollup";
+import { name } from "../package.json";
 // import commonjs from '@rollup/plugin-commonjs';
 
 // import nodeResolve from '@rollup/plugin-node-resolve';
 
-const resolve = (filePath) => {
-  return path.join(__dirname, '..', filePath);
+const resolve = filePath => {
+  return path.join(__dirname, "..", filePath);
 };
 
 // const COMMONJS = commonjs();
@@ -18,34 +20,26 @@ const TSPLUGIN = typescript({
 });
 
 const BABELPLUGIN = babel({
-  extensions: ['.js', '.ts'],
-  exclude: 'node_modules/**',
-  babelHelpers: 'bundled',
+  extensions: [".js", ".ts"],
+  exclude: "node_modules/**",
+  babelHelpers: "bundled",
 });
 
 export { resolve };
 
-export default (dirName) => {
-  return [
-    {
-      input: resolve('src/index.ts'),
-      output: {
-        file: resolve(`${dirName}/index.es.js`),
-        format: 'es',
-        name: '$l',
-        exports: 'default',
-      },
-      plugins: [TSPLUGIN, BABELPLUGIN],
-    },
-    {
-      input: resolve('src/index.ts'),
-      output: {
-        file: resolve(`${dirName}/index.cjs.js`),
-        format: 'cjs',
-        name: '$l',
-        exports: 'named',
-      },
-      plugins: [TSPLUGIN, BABELPLUGIN],
-    },
-  ];
-};
+/**
+ * rollop 配置
+ * @param {string} dirName - 路径
+ * @returns { RollupOptions }
+ */
+const rollupOptionsFunc = dirName => ({
+  input: resolve("src/index.ts"),
+  output: {
+    file: resolve(`${dirName}/index.js`),
+    format: "umd",
+    name,
+  },
+  plugins: [TSPLUGIN, BABELPLUGIN],
+});
+
+export default rollupOptionsFunc;
